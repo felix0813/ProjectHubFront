@@ -1,10 +1,8 @@
 <script setup>
 import { computed, onMounted, reactive, ref, watch } from 'vue'
 
-const API_BASE = (import.meta.env.VITE_API_BASE || 'http://127.0.0.1:8000').replace(
-  /\/+$/,
-  ''
-)
+const defaultApiBase = `${window.location.protocol}//${window.location.hostname}:8000`
+const API_BASE = (import.meta.env.VITE_API_BASE || defaultApiBase).replace(/\/+$/, '')
 
 const loading = ref(false)
 const error = ref('')
